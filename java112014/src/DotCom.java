@@ -172,9 +172,9 @@ public class DotCom extends JFrame   {
 
 		ActionListener youhit = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				final ImageIcon icon = new ImageIcon("/java112014/dotcom-files/explosion.gif");
-				final ImageIcon win = new ImageIcon("/java112014/dotcom-files/banana.gif");
-				final ImageIcon boom = new ImageIcon("/java112014/dotcom-files/boom.gif");
+				final ImageIcon icon = new ImageIcon("./explosion.gif");
+				final ImageIcon win = new ImageIcon("explosion.gif"); 
+				final ImageIcon boom = new ImageIcon(this.getClass().getResource("explosion.gif"));
 				
 				Object source = e.getSource();
 				
@@ -217,7 +217,7 @@ public class DotCom extends JFrame   {
 				    	
 				    	if(check == 9 && total >= 9  && total <= 15) {
 				    		try {
-		                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/java112014/dotcom-files/winner.wav").getAbsoluteFile());
+		                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/Users/Shannon/git/java112014/dotcom-files/winner.wav").getAbsoluteFile());
 		                        Clip clip = AudioSystem.getClip();
 		                        clip.open(audioInputStream);
 		                        clip.start();
