@@ -8,6 +8,8 @@ import java.applet.AudioClip;
 import java.net.URL;
 import javax.swing.*;
 import javax.sound.sampled.*;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.AudioSystem;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -172,18 +174,22 @@ public class DotCom extends JFrame   {
 
 		ActionListener youhit = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				final ImageIcon icon = new ImageIcon("./explosion.gif");
-				final ImageIcon win = new ImageIcon("explosion.gif"); 
-				final ImageIcon boom = new ImageIcon(this.getClass().getResource("explosion.gif"));
+				final ImageIcon icon = new ImageIcon(this.getClass().getResource("/resources/explosion.gif"));
+				final ImageIcon win = new ImageIcon(this.getClass().getResource("/resources/banana.gif"));
+				final ImageIcon boom = new ImageIcon(this.getClass().getResource("/resources/boom.gif"));
 				
 				Object source = e.getSource();
 				
 				if (source == G7 || source == G6 || source == G5) {
 					try {
-                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/java112014/dotcom-files/blast.wav").getAbsoluteFile());
+						URL soundURL = DotCom.class.getResource("/resources/blast.wav");
+						AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+                       
                         Clip clip = AudioSystem.getClip();
-                        clip.open(audioInputStream);
+                        clip.open(audioStream);
                         clip.start();
+                        
+                     
 					}catch(Exception x) { x.printStackTrace(); }
 					
 					JOptionPane.showMessageDialog (null, "BOOM! YOU HIT YOUTUBE.COM!", "HIT", JOptionPane.INFORMATION_MESSAGE, icon);
@@ -203,9 +209,11 @@ public class DotCom extends JFrame   {
 				 if(!G5.isEnabled()&&!G6.isEnabled()&&!G7.isEnabled()){
 					 
 						try {
-	                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/java112014/dotcom-files/bomb.wav").getAbsoluteFile());
+							URL soundURL = DotCom.class.getResource("/resources/bomb.wav");
+							AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+	                        
 	                        Clip clip = AudioSystem.getClip();
-	                        clip.open(audioInputStream);
+	                        clip.open(audioStream);
 	                        clip.start();
 					 }catch(Exception x) { x.printStackTrace(); }
 						
@@ -217,9 +225,11 @@ public class DotCom extends JFrame   {
 				    	
 				    	if(check == 9 && total >= 9  && total <= 15) {
 				    		try {
-		                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/Users/Shannon/git/java112014/dotcom-files/winner.wav").getAbsoluteFile());
+				    			URL soundURL = DotCom.class.getResource("/resources/winner.wav");
+								AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+		                       
 		                        Clip clip = AudioSystem.getClip();
-		                        clip.open(audioInputStream);
+		                        clip.open(audioStream);
 		                        clip.start();
 		           }catch(Exception x) { x.printStackTrace(); }
 				    		
@@ -230,9 +240,11 @@ public class DotCom extends JFrame   {
 					    
 				    	}else if(check == 9 && total > 15 && total <= 25) {
 				    		try {
-		                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/java112014/dotcom-files/winner.wav").getAbsoluteFile());
+				    			URL soundURL = DotCom.class.getResource("/resources/winner.wav");
+								AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+		                       
 		                        Clip clip = AudioSystem.getClip();
-		                        clip.open(audioInputStream);
+		                        clip.open(audioStream);
 		                        clip.start();
 		          }catch(Exception x) { x.printStackTrace(); }
 				    		
@@ -259,15 +271,17 @@ public class DotCom extends JFrame   {
 		ActionListener yahoohit = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Object source = e.getSource();
-				final ImageIcon icon = new ImageIcon("/java112014/dotcom-files/explosion.gif");
-				final ImageIcon win = new ImageIcon("/java112014/dotcom-files/banana.gif");
-				final ImageIcon boom = new ImageIcon("/java112014/dotcom-files/boom.gif");
+				final ImageIcon icon = new ImageIcon(this.getClass().getResource("/resources/explosion.gif"));
+				final ImageIcon win = new ImageIcon(this.getClass().getResource("/resources/banana.gif"));
+				final ImageIcon boom = new ImageIcon(this.getClass().getResource("/resources/boom.gif"));
 				
 				if (source instanceof Component) {
 					try {
-                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/java112014/dotcom-files/blast.wav").getAbsoluteFile());
+						URL soundURL = DotCom.class.getResource("/resources/blast.wav");
+						AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+                       
                         Clip clip = AudioSystem.getClip();
-                        clip.open(audioInputStream);
+                        clip.open(audioStream);
                         clip.start();
 					}catch(Exception x) { x.printStackTrace(); }
 					
@@ -285,9 +299,11 @@ public class DotCom extends JFrame   {
 				    
 				    if(!A4.isEnabled()&&!A5.isEnabled()&&!A6.isEnabled()){
 				    	try {
-	                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/java112014/dotcom-files/bomb.wav").getAbsoluteFile());
+				    		URL soundURL = DotCom.class.getResource("/resources/bomb.wav");
+							AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+	                       
 	                        Clip clip = AudioSystem.getClip();
-	                        clip.open(audioInputStream);
+	                        clip.open(audioStream);
 	                        clip.start();
 				    	}catch(Exception x) { x.printStackTrace(); }
 				    	
@@ -298,9 +314,11 @@ public class DotCom extends JFrame   {
 				    	
 					if(check == 9 && total >= 9  && total <= 15) {
 						try {
-	                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/java112014/dotcom-files/winner.wav").getAbsoluteFile());
+							URL soundURL = DotCom.class.getResource("/resources/winner.wav");
+							AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+	                        
 	                        Clip clip = AudioSystem.getClip();
-	                        clip.open(audioInputStream);
+	                        clip.open(audioStream);
 	                        clip.start();
 						}catch(Exception x) { x.printStackTrace(); }
 						
@@ -311,9 +329,11 @@ public class DotCom extends JFrame   {
 				    
 			    	}else if(check == 9 && total > 15 && total <= 25) {
 			    		try {
-	                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/java112014/dotcom-files/winner.wav").getAbsoluteFile());
+			    			URL soundURL = DotCom.class.getResource("/resources/winner.wav");
+							AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+	                        
 	                        Clip clip = AudioSystem.getClip();
-	                        clip.open(audioInputStream);
+	                        clip.open(audioStream);
 	                        clip.start();
 			    		}catch(Exception x) { x.printStackTrace(); }
 			    		
@@ -339,16 +359,18 @@ public class DotCom extends JFrame   {
 		};
 		ActionListener googhit = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				final ImageIcon win = new ImageIcon("/java112014/dotcom-files/banana.gif");
-				final ImageIcon icon = new ImageIcon("/java112014/dotcom-files/explosion.gif");
-				final ImageIcon boom = new ImageIcon("/java112014/dotcom-files/boom.gif");
+				final ImageIcon icon = new ImageIcon(this.getClass().getResource("/resources/explosion.gif"));
+				final ImageIcon win = new ImageIcon(this.getClass().getResource("/resources/banana.gif"));
+				final ImageIcon boom = new ImageIcon(this.getClass().getResource("/resources/boom.gif"));
 				
 				Object source = e.getSource();
 				if (source instanceof Component) {
 					try {
-                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/java112014/dotcom-files/blast.wav").getAbsoluteFile());
+						URL soundURL = DotCom.class.getResource("/resources/blast.wav");
+						AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+                       
                         Clip clip = AudioSystem.getClip();
-                        clip.open(audioInputStream);
+                        clip.open(audioStream);
                         clip.start();
 					}catch(Exception x) { x.printStackTrace(); }
 					
@@ -373,9 +395,11 @@ public class DotCom extends JFrame   {
 				    if(!D1.isEnabled()&&!D2.isEnabled()&&!D3.isEnabled()){
 				    	
 				    	try {
-	                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/java112014/dotcom-files/bomb.wav").getAbsoluteFile());
+				    		URL soundURL = DotCom.class.getResource("/resources/bomb.wav");
+							AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+	                       
 	                        Clip clip = AudioSystem.getClip();
-	                        clip.open(audioInputStream);
+	                        clip.open(audioStream);
 	                        clip.start();
 				    	}catch(Exception x) { x.printStackTrace(); }
 				    	
@@ -385,9 +409,11 @@ public class DotCom extends JFrame   {
 
 					if(check == 9 && total >= 9  && total <= 15) {
 						try {
-	                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/java112014/dotcom-files/winner.wav").getAbsoluteFile());
+							URL soundURL = DotCom.class.getResource("/resources/winner.wav");
+							AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+	                       
 	                        Clip clip = AudioSystem.getClip();
-	                        clip.open(audioInputStream);
+	                        clip.open(audioStream);
 	                        clip.start();
 						}catch(Exception x) { x.printStackTrace(); }
 						
@@ -398,10 +424,13 @@ public class DotCom extends JFrame   {
 				    
 			    	}else if(check == 9 && total > 15 && total <= 25) {
 			    		try {
-	                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/java112014/dotcom-files/winner.wav").getAbsoluteFile());
+			    			URL soundURL = DotCom.class.getResource("/resources/winner.wav");
+							AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+	                       
 	                        Clip clip = AudioSystem.getClip();
-	                        clip.open(audioInputStream);
+	                        clip.open(audioStream);
 	                        clip.start();
+	                      
 			    		}catch(Exception x) { x.printStackTrace(); }
 			    		
 				    	JOptionPane.showMessageDialog (null, "CONGRATS! YOU WON! \nRATING: 4/5 STARS!","GAME OVER", JOptionPane.INFORMATION_MESSAGE, win );
@@ -429,12 +458,15 @@ public class DotCom extends JFrame   {
 		
 		ActionListener listener2 = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
 				Object source = e.getSource();
 				if (source instanceof Component) {
 					try {
-                        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/java112014/dotcom-files/miss.wav").getAbsoluteFile());
+						URL soundURL = DotCom.class.getResource("/resources/miss.wav");
+						AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundURL);
+                        
                         Clip clip = AudioSystem.getClip();
-                        clip.open(audioInputStream);
+                        clip.open(audioStream);
                         clip.start();
 					}catch(Exception x) { x.printStackTrace(); }
 					((Component) source).setBackground(Color.BLUE);
